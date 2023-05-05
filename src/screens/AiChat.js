@@ -4,10 +4,15 @@ import Message from '../components/Message'
 import { chatStyles } from './styles/chatStyles'
 import { Dimensions } from 'react-native';
 import { openai } from '../config/openAiConfig';
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+import { useHeaderHeight } from '@react-navigation/elements';
+
+
 
 const AiChat = () => {
+    const headerHeight = useHeaderHeight();
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height - headerHeight;
+
     const flatList = useRef(null);
     const [text, setText] = useState('')
     const [chat, setChat] = useState([])
@@ -36,23 +41,17 @@ const AiChat = () => {
     }, []);
 
     const handleSubmit = async () => {
-        // let newValue = { 'id': 'me', 'message': text };
-        // setChat(chat => [...chat, newValue]);
-        // setText('')
+        let newValue = { 'id': 'me', 'message': text };
+        setChat(chat => [...chat, newValue]);
+        setText('')
         try {
-            const response = await openai.createImage({
-                prompt: "a white siamese cat",
-                n: 1,
-                size: "1024x1024",
+            const result = await openai.createChatCompletion({
+                model: "gpt-3.5-turbo",
+                messages: [{ role: 'user', content: text }]
             });
-            console.log(response.data.data[0].url)
-            // const result = await openai.createChatCompletion({
-            //     model: "gpt-3.5-turbo",
-            //     messages: [{ role: 'user', content: text }]
-            // });
-            // newValue = { 'id': 'ai', 'message': result.data.choices[0].message.content };
-            // setChat(chat => [...chat, newValue]);
-            // setText('')
+            newValue = { 'id': 'ai', 'message': result.data.choices[0].message.content };
+            setChat(chat => [...chat, newValue]);
+            setText('')
         } catch (e) {
             console.log("Something is going wrong, Please try again.", e);
         }

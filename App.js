@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import AiChat from './src/screens/AiChat'
+import Navigation from './src/navigation/Navigation'
 const App = () => {
   return (
-    <AiChat />
+    <Navigation />
   )
 }
 
