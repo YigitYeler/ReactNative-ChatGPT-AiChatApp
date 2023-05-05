@@ -5,6 +5,7 @@ import { chatStyles } from './styles/chatStyles'
 import { Dimensions } from 'react-native';
 import { openai } from '../config/openAiConfig';
 import { useHeaderHeight } from '@react-navigation/elements';
+import { themeColors } from '../enums/colorEnums';
 
 
 
@@ -58,11 +59,10 @@ const AiChat = () => {
     };
 
     return (
-        <View style={[{ height: windowHeight }, isKeyboardVisible ? { height: windowHeight - keybordHeight } : {}]}>
-
-            <View style={[{ height: windowHeight * 0.9 }, isKeyboardVisible ? { height: windowHeight * 0.9 - keybordHeight } : {}]}>
+        <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: themeColors.backgroundBlack, paddingBottom: windowWidth * 0.03 }}>
                 {chat.length == 0 ?
-                    (<Text>Mesajlar sayfadan çıkılınca silinir</Text>) :
+                    (<Text style={{ color: 'white', textAlign: 'center' }}>Mesajlar sayfadan çıkılınca silinir</Text>) :
                     (
                         <FlatList
                             data={chat}
@@ -84,20 +84,20 @@ const AiChat = () => {
                 }
 
             </View>
-            <View style={{ height: windowHeight * 0.1, backgroundColor: 'black', display: 'flex', flexDirection: 'row' }} >
+            <View style={{ height: windowHeight * 0.1, backgroundColor: themeColors.backgroundBlack, flexDirection: 'row' }} >
                 <TextInput
                     style={{ color: 'white', height: '100%', width: windowWidth * 0.8 }}
                     placeholder='Mesaj Giriniz'
                     placeholderTextColor={'white'}
                     onChangeText={(txt) => setText(txt)} value={text} />
                 <TouchableOpacity
-                    style={{ width: windowWidth * 0.2, justifyContent: 'center', alignItems: 'center' }}
+                    style={{ backgroundColor: themeColors.primaryBlue, width: windowWidth * 0.2, justifyContent: 'center', alignItems: 'center' }}
                     onPress={handleSubmit}
                 >
                     <Text style={{ color: 'white' }}>Gönder</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </View >
     )
 }
 

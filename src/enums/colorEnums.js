@@ -1,4 +1,4 @@
 export const themeColors = {
     'backgroundBlack': 'black',
-    'primarBlue': 'blue'
+    'primaryBlue': '#0374ff'
 }

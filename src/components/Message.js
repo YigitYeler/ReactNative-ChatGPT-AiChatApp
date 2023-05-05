@@ -3,25 +3,13 @@ import React from 'react'
 import { messageStyles } from './styles/messageStyles'
 
 const Message = ({ id, text }) => {
-    if (id == 'me') {
-        return (
-
-            <View style={[messageStyles.main, { justifyContent: 'flex-end' }]}>
-                <View style={messageStyles.message}>
-                    <Text style={{ color: 'white' }}>{text}</Text>
-                </View>
+    return (
+        <View style={[messageStyles.main, id == 'me' ? { justifyContent: 'flex-end' } : { justifyContent: 'flex-start' }]}>
+            <View style={messageStyles.message}>
+                <Text style={{ color: 'white' }}>{text}</Text>
             </View>
-        )
-    }
-    else {
-        return (
-            <View style={[messageStyles.main, { justifyContent: 'flex-start' }]}>
-                <View style={messageStyles.message}>
-                    <Text style={{ color: 'white' }}>{text}</Text>
-                </View>
-            </View>
-        )
-    }
+        </View>
+    )
 
 }
 

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
+import { themeColors } from '../../enums/colorEnums';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -13,9 +14,9 @@ export const messageStyles = StyleSheet.create({
     message: {
         maxWidth: windowWidth * 0.7,
         minHeight: windowHeight * 0.05,
-        backgroundColor: 'black',
+        backgroundColor: themeColors.primaryBlue,
         padding: windowWidth * 0.04,
         borderRadius: windowWidth * 0.03,
-        margin: windowWidth * 0.03,
+        marginHorizontal: windowWidth * 0.03,
     }
 })
