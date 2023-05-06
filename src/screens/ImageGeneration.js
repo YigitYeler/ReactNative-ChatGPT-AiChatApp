@@ -30,19 +30,19 @@ const ImageGeneration = () => {
         }
     };
     return (
-        <ScrollView style={{ backgroundColor: themeColors.backgroundBlack, flex: 1 }}>
+        <ScrollView style={{ backgroundColor: 'white', flex: 1 }}>
             {isLoading ? (
-                <View style={{ width: windowWidth, height: windowWidth, backgroundColor: '#121212', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ color: 'white' }}>Image is generating...</Text>
+                <View style={{ width: windowWidth, height: windowWidth, backgroundColor: '#bfbfbf', justifyContent: 'center', alignItems: 'center' }}>
+
                     <ActivityIndicator size="large" color={themeColors.primaryBlue} />
                 </View>
             ) : (
                 <Image
                     style={{ width: windowWidth, height: windowWidth }}
-                    source={imgUrl ? { uri: imgUrl } : require('../../assets/black-img.png')} />
+                    source={imgUrl ? { uri: imgUrl } : require('../../assets/grey-img.png')} />
             )}
             <TextInput
-                style={{ textAlign: 'center', marginVertical: windowHeight * 0.06, color: 'white', width: windowWidth, borderBottomWidth: 2, borderColor: themeColors.primaryBlue }}
+                style={{ textAlign: 'center', marginVertical: windowHeight * 0.06, color: 'black', width: windowWidth, borderBottomWidth: 2, borderColor: themeColors.primaryBlue }}
                 onChangeText={(txt) => setText(txt)}
                 value={text}
                 placeholder='Enter the prompt'

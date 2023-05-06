@@ -6,6 +6,7 @@ import { Dimensions } from 'react-native';
 import { openai } from '../config/openAiConfig';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { themeColors } from '../enums/colorEnums';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 
@@ -63,8 +64,8 @@ const AiChat = () => {
             <View style={chatStyles.flatListView}>
                 {chat.length == 0 ?
                     (
-                        <Text style={{ color: 'white', textAlign: 'center' }}>
-                            Mesajlar sayfadan çıkılınca silinir
+                        <Text style={{ color: 'black', textAlign: 'center' }}>
+                            Messages will delete when you leave this page
                         </Text>
                     ) :
                     (
@@ -99,7 +100,13 @@ const AiChat = () => {
                     style={chatStyles.sendButton}
                     onPress={handleSubmit}
                 >
-                    <Text style={{ color: 'white' }}>Gönder</Text>
+                    <LinearGradient
+                        start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }}
+                        colors={['#5454ff', "#30c8ff"]}
+                        style={chatStyles.sendButton}
+                    >
+                        <Text style={{ color: 'white' }}>Send</Text>
+                    </LinearGradient>
                 </TouchableOpacity>
             </View>
         </View >

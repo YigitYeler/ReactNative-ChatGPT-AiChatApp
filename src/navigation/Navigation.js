@@ -18,14 +18,7 @@ const Navigation = () => {
                     name="Home"
                     component={Home}
                     options={{
-                        headerTitleAlign: 'center',
-                        headerStyle: {
-                            backgroundColor: themeColors.primaryBlue,
-                        },
-                        headerTintColor: 'white',
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
+                        headerShown: false,
                     }}
                 />
                 <Stack.Screen
@@ -35,9 +28,9 @@ const Navigation = () => {
                         headerTitle: 'Ai Chat',
                         headerTitleAlign: 'center',
                         headerStyle: {
-                            backgroundColor: themeColors.primaryBlue,
+                            backgroundColor: 'white',
                         },
-                        headerTintColor: 'white',
+                        headerTintColor: 'black',
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
@@ -50,9 +43,9 @@ const Navigation = () => {
                         headerTitle: 'Image Generation',
                         headerTitleAlign: 'center',
                         headerStyle: {
-                            backgroundColor: themeColors.primaryBlue,
+                            backgroundColor: 'white',
                         },
-                        headerTintColor: 'white',
+                        headerTintColor: 'black',
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
