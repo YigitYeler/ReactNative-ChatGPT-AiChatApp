@@ -47,7 +47,7 @@ const Navigation = () => {
                     name="ImageGeneration"
                     component={ImageGeneration}
                     options={{
-                        headerTitle: 'Ai Chat',
+                        headerTitle: 'Image Generation',
                         headerTitleAlign: 'center',
                         headerStyle: {
                             backgroundColor: themeColors.primaryBlue,

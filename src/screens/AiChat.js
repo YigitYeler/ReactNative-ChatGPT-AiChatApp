@@ -59,10 +59,14 @@ const AiChat = () => {
     };
 
     return (
-        <View style={{ flex: 1 }}>
-            <View style={{ flex: 1, backgroundColor: themeColors.backgroundBlack, paddingBottom: windowWidth * 0.03 }}>
+        <View style={chatStyles.main}>
+            <View style={chatStyles.flatListView}>
                 {chat.length == 0 ?
-                    (<Text style={{ color: 'white', textAlign: 'center' }}>Mesajlar sayfadan çıkılınca silinir</Text>) :
+                    (
+                        <Text style={{ color: 'white', textAlign: 'center' }}>
+                            Mesajlar sayfadan çıkılınca silinir
+                        </Text>
+                    ) :
                     (
                         <FlatList
                             data={chat}
@@ -84,14 +88,15 @@ const AiChat = () => {
                 }
 
             </View>
-            <View style={{ height: windowHeight * 0.1, backgroundColor: themeColors.backgroundBlack, flexDirection: 'row' }} >
+            <View style={chatStyles.bottomView} >
                 <TextInput
-                    style={{ color: 'white', height: '100%', width: windowWidth * 0.8 }}
+                    style={chatStyles.textInput}
                     placeholder='Mesaj Giriniz'
-                    placeholderTextColor={'white'}
-                    onChangeText={(txt) => setText(txt)} value={text} />
+                    placeholderTextColor={'grey'}
+                    onChangeText={(txt) => setText(txt)} value={text}
+                />
                 <TouchableOpacity
-                    style={{ backgroundColor: themeColors.primaryBlue, width: windowWidth * 0.2, justifyContent: 'center', alignItems: 'center' }}
+                    style={chatStyles.sendButton}
                     onPress={handleSubmit}
                 >
                     <Text style={{ color: 'white' }}>Gönder</Text>
